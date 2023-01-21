@@ -1,4 +1,4 @@
-#Week 3
+# Week 3
 Welcome to week three!
 Your Homework for the next week is:
 
