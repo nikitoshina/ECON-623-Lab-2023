@@ -39,8 +39,7 @@ Now the most crucial part!!! Change the default theme of RStudio from light to d
 5. In Editor Theme, select "Dracula"
 6. Click Apply
 
-Now let's install a cooler font with ligatures! Install fira-code: [https://github.com/tonsky/FiraCode/wiki/Installing](https://github.com/tonsky/FiraCode/wiki/Installing).
-Then go back to Appearance, choose FiraCode, and hit apply.
+Now let's install a cooler font with ligatures! Install fira-code: [https://github.com/tonsky/FiraCode/wiki/Installing](https://github.com/tonsky/FiraCode/wiki/Installing). **Restart** RStudio for the font to load. Then go back to Appearance, choose FiraCode, and hit apply.
 
 ## Install Packages
 An R package is a collection of useful functions, documentation, and data sets that can be used in your own R code after it is loaded. These packages typically focus on a specific task and make use of pre-written routines for various data science tasks.
