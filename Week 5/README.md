@@ -17,11 +17,11 @@ vignette](http://www.sthda.com/english/wiki/qplot-quick-plot-with-ggplot2-r-soft
 
     data_raven %>% pull(pr_correct) %>% hist() 
 
-![](../Week%205/README_files/figure-markdown_strict/unnamed-chunk-5-1.png)
+![](../Week%205/README_files/figure-markdown_strict/unnamed-chunk-2-1.png)
 
     data_raven %>% qplot(pr_correct, data = ., geom = 'histogram', bins = length(unique(data_raven$pr_correct)))
 
-![](../Week%205/README_files/figure-markdown_strict/unnamed-chunk-5-2.png)
+![](../Week%205/README_files/figure-markdown_strict/unnamed-chunk-2-2.png)
 
 ## `ggplot()`
 
@@ -47,7 +47,8 @@ building them. For example, let’s improve the histogram from earlier!
            y = "Subject Count", 
            title = "Distribution of Correct Answers in Piece-rate Game")
 
-![](../Week%205/README_files/figure-markdown_strict/unnamed-chunk-6-1.png)
+![](../Week%205/README_files/figure-markdown_strict/unnamed-chunk-3-1.png)
+
 Ah much better! We added labels, removed unnecessary grid lines, and
 added some color. If you want to learn more about ggplot check out
 [ggplot2: Elegant Graphics for Data Analysis](https://ggplot2-book.org))
@@ -100,7 +101,7 @@ Second graph is an improvement as it removes the distraction, emphasizes
 the country of the interest by greying out the rest and painting
 “Greece”. The “Red” color signals that Greece might be doing not so
 well.
-![](../Week%205/README_files/figure-markdown_strict/unnamed-chunk-10-1.png)
+![](../Week%205/README_files/figure-markdown_strict/unnamed-chunk-7-1.png)
 
 ### Comparing Two Things
 
@@ -111,7 +112,7 @@ each other on the color wheel to create a strong contrast. This creates
 a positive/negative connotation that is good for showcasing differences.
 Colors near each other on the wheel can also work well together, but
 opposite colors provide the strongest support for a key color.
-![](../Week%205/README_files/figure-markdown_strict/unnamed-chunk-12-1.png)
+![](../Week%205/README_files/figure-markdown_strict/unnamed-chunk-9-1.png)
 
 #### Near Complementary Harmony for Highlighting Two Series Where One Is the Primary Focus
 
@@ -123,7 +124,7 @@ primary focus. It is best to use warm colors for the key color and cool
 colors for the complementary colors. If necessary, the complementary
 colors can be muted by decreasing their saturation or altering their
 lightness to reduce the contrast with the background.
-![](../Week%205/README_files/figure-markdown_strict/unnamed-chunk-13-1.png)
+![](../Week%205/README_files/figure-markdown_strict/unnamed-chunk-10-1.png)
 
 ### Color Palettes for Comparing Three Things
 
@@ -134,7 +135,7 @@ simple distinctions among categories. In contrast, triadic harmony uses
 the key color and two complementary colors evenly spaced around the
 color wheel for greater contrast, but may lose the emphasis on the key
 color.
-![](../Week%205/README_files/figure-markdown_strict/unnamed-chunk-14-1.png)
+![](../Week%205/README_files/figure-markdown_strict/unnamed-chunk-11-1.png)
 
 #### Highlighting One Series Against Two Related Series
 
@@ -147,7 +148,7 @@ colors for the complementary colors. If necessary, the complementary
 colors can be muted by decreasing their saturation or altering their
 lightness to reduce the contrast with the background.
 
-![](../Week%205/README_files/figure-markdown_strict/unnamed-chunk-15-1.png)
+![](../Week%205/README_files/figure-markdown_strict/unnamed-chunk-12-1.png)
 
 ### Color Palettes for Comparing Four Things
 
@@ -159,7 +160,7 @@ that are one step away from the complementary color. This scheme still
 allows for analogous harmony while creating a quartet of colors that can
 be used for one main series and its three components. The similarities
 between the three complementary colors make the key color stand out.
-![](../Week%205/README_files/figure-markdown_strict/unnamed-chunk-16-1.png)
+![](../Week%205/README_files/figure-markdown_strict/unnamed-chunk-13-1.png)
 
 #### Double Complementary for Two Pairs Where One Pair Is Dominant
 
@@ -171,7 +172,7 @@ color and its adjacent color to serve as their respective partners. It
 is recommended that the key color and its adjacent color be warmer
 colors, while the complementary colors should be cooler colors. This
 scheme works well for highlighting two pairs where one pair is dominant.
-![](../Week%205/README_files/figure-markdown_strict/unnamed-chunk-17-1.png)
+![](../Week%205/README_files/figure-markdown_strict/unnamed-chunk-14-1.png)
 
 #### Rectangular or Square Complementary for Four Series of Equal Emphasis
 
@@ -183,7 +184,7 @@ two additional colors are added to create a rectangle or square on the
 color wheel. The resulting colors create a clear distinction between the
 four series. This scheme is similar to double complementary but works
 better when all four series are of equal importance.
-![](../Week%205/README_files/figure-markdown_strict/unnamed-chunk-18-1.png)
+![](../Week%205/README_files/figure-markdown_strict/unnamed-chunk-15-1.png)
 
 ### Sequential and Divergent
 
@@ -196,7 +197,7 @@ Let’s use our beloved purple to GDP of different countries.
 
 #### Sequential
 
-![](../Week%205/README_files/figure-markdown_strict/unnamed-chunk-21-1.png)
+![](../Week%205/README_files/figure-markdown_strict/unnamed-chunk-18-1.png)
 \#### Divergent Diverging color schemes are used when the numeric
 variables have a meaningful central value such as zero. They combine two
 sequential palettes with a shared endpoint that rests on the central
@@ -207,7 +208,7 @@ important to keep the color scheme simple to avoid diluting the meaning
 and confusing the audience. Proper use of colors can reduce the
 cognitive load and help people understand complex information more
 easily.
-![](../Week%205/README_files/figure-markdown_strict/unnamed-chunk-22-1.png)
+![](../Week%205/README_files/figure-markdown_strict/unnamed-chunk-19-1.png)
 
 ### Prebuilt
 
@@ -219,7 +220,7 @@ prebuilt color scales can help people with color blindness to better
 interpret data visualizations, as they use colors with consistent visual
 contrast. Using prebuilt color scales can help ensure that data
 visualizations are accessible to the widest possible audience.
-![](../Week%205/README_files/figure-markdown_strict/unnamed-chunk-23-1.png)
+![](../Week%205/README_files/figure-markdown_strict/unnamed-chunk-20-1.png)
 
 ### Color Systems
 
