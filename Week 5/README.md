@@ -17,11 +17,11 @@ vignette](http://www.sthda.com/english/wiki/qplot-quick-plot-with-ggplot2-r-soft
 
     data_raven %>% pull(pr_correct) %>% hist() 
 
-![](../Week%205/README_files/figure-markdown_strict/unnamed-chunk-14-1.png)
+![](../Week%205/README_files/figure-markdown_strict/unnamed-chunk-4-1.png)
 
     data_raven %>% qplot(pr_correct, data = ., geom = 'histogram', bins = length(unique(data_raven$pr_correct)))
 
-![](../Week%205/README_files/figure-markdown_strict/unnamed-chunk-14-2.png)
+![](../Week%205/README_files/figure-markdown_strict/unnamed-chunk-4-2.png)
 
 ## `ggplot()`
 
@@ -47,7 +47,7 @@ building them. For example, let’s improve the histogram from earlier!
            y = "Subject Count", 
            title = "Distribution of Correct Answers in Piece-rate Game")
 
-![](../Week%205/README_files/figure-markdown_strict/unnamed-chunk-15-1.png)
+![](../Week%205/README_files/figure-markdown_strict/unnamed-chunk-5-1.png)
 
 Ah much better! We added labels, removed unnecessary grid lines, and
 added some color. If you want to learn more about ggplot check out
@@ -92,8 +92,6 @@ information being presented.
 
 ### Highlight Important Point
 
-    ## `summarise()` has grouped output by 'year'. You can override using the `.groups` argument.
-
 We use color to emphasize certain data and give context. Below are
 graphs comparing GDP of European Countries in 1997. First Graph has give
 each country its own color, creating a “explosion at a candy factory”.
@@ -102,7 +100,7 @@ the country of the interest by greying out the rest and painting
 “Greece”. The “Red” color signals that Greece might be doing not so
 well.
 
-![](../Week%205/README_files/figure-markdown_strict/unnamed-chunk-19-1.png)
+![](../Week%205/README_files/figure-markdown_strict/unnamed-chunk-9-1.png)
 
 ### Comparing Two Things
 
@@ -118,7 +116,7 @@ Europe. The use of bright purple emphasizes the significant population
 growth of Asia, while the green color highlights the slower population
 growth in Europe.
 
-![](../Week%205/README_files/figure-markdown_strict/unnamed-chunk-21-1.png)
+![](../Week%205/README_files/figure-markdown_strict/unnamed-chunk-11-1.png)
 
 #### Near Complementary Harmony for Highlighting Two Series Where One Is the Primary Focus
 
@@ -134,7 +132,7 @@ highlights the importance of population growth in Asia, with Europe
 being presented neutrally as a point of comparison rather than as a
 slow-growing region.
 
-![](../Week%205/README_files/figure-markdown_strict/unnamed-chunk-22-1.png)
+![](../Week%205/README_files/figure-markdown_strict/unnamed-chunk-12-1.png)
 
 ### Color Palettes for Comparing Three Things
 
@@ -147,7 +145,7 @@ color wheel for greater contrast, but may lose the emphasis on the key
 color. The example below displays the population of three countries
 without any specific emphasis.
 
-![](../Week%205/README_files/figure-markdown_strict/unnamed-chunk-23-1.png)
+![](../Week%205/README_files/figure-markdown_strict/unnamed-chunk-13-1.png)
 
 #### Highlighting One Series Against Two Related Series
 
@@ -163,7 +161,7 @@ highlights the GDPs of 3 countries with emphasis on Asia through the use
 of the purple color. Europe and the Americas are depicted with similar
 shades of green, indicating their lesser significance for the narrative.
 
-![](../Week%205/README_files/figure-markdown_strict/unnamed-chunk-24-1.png)
+![](../Week%205/README_files/figure-markdown_strict/unnamed-chunk-14-1.png)
 
 ### Color Palettes for Comparing Four Things
 
@@ -178,7 +176,7 @@ between the three complementary colors make the key color stand out. The
 example below shows Malaysian Economic Miracle in comparison to
 Malaysia’s three neighbors.
 
-![](../Week%205/README_files/figure-markdown_strict/unnamed-chunk-25-1.png)
+![](../Week%205/README_files/figure-markdown_strict/unnamed-chunk-15-1.png)
 
 #### Double Complementary for Two Pairs Where One Pair Is Dominant
 
@@ -195,7 +193,7 @@ countries in 1952. Switzerland and Norway are assigned purple-ish
 colors, putting them in one group, while Bosnia and Albania are assigned
 a green-blue colors to differentiate them.
 
-![](../Week%205/README_files/figure-markdown_strict/unnamed-chunk-26-1.png)
+![](../Week%205/README_files/figure-markdown_strict/unnamed-chunk-16-1.png)
 
 #### Rectangular or Square Complementary for Four Series of Equal Emphasis
 
@@ -213,7 +211,7 @@ industrialization from the 1960s to 1990s. Hong Kong, Singapore, South
 Korea, and Taiwan are all equally important with the emphasis on the
 dynamic of their economies.
 
-![](../Week%205/README_files/figure-markdown_strict/unnamed-chunk-27-1.png)
+![](../Week%205/README_files/figure-markdown_strict/unnamed-chunk-17-1.png)
 
 ### Sequential and Divergent
 
@@ -226,7 +224,7 @@ Let’s use our beloved purple to GDP of different countries.
 
 #### Sequential
 
-![](../Week%205/README_files/figure-markdown_strict/unnamed-chunk-30-1.png)
+![](../Week%205/README_files/figure-markdown_strict/unnamed-chunk-20-1.png)
 
 #### Divergent
 
@@ -240,7 +238,7 @@ keep the color scheme simple to avoid diluting the meaning and confusing
 the audience. Proper use of colors can reduce the cognitive load and
 help people understand complex information more easily.
 
-![](../Week%205/README_files/figure-markdown_strict/unnamed-chunk-31-1.png)
+![](../Week%205/README_files/figure-markdown_strict/unnamed-chunk-21-1.png)
 
 ### Prebuilt
 
@@ -253,7 +251,7 @@ interpret data visualizations, as they use colors with consistent visual
 contrast. Using prebuilt color scales can help ensure that data
 visualizations are accessible to the widest possible audience.
 
-![](../Week%205/README_files/figure-markdown_strict/unnamed-chunk-32-1.png)
+![](../Week%205/README_files/figure-markdown_strict/unnamed-chunk-22-1.png)
 
 ### Color Systems
 
