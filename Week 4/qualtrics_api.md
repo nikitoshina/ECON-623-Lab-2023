@@ -11,7 +11,7 @@
 
 <meta name="author" content="Nikita Tkachenko" />
 
-<meta name="date" content="2023-02-02" />
+<meta name="date" content="2023-02-14" />
 
 <title>qualtrics_api</title>
 
@@ -352,7 +352,7 @@ display: none;
 
 <h1 class="title toc-ignore">qualtrics_api</h1>
 <h4 class="author">Nikita Tkachenko</h4>
-<h4 class="date">2023-02-02</h4>
+<h4 class="date">2023-02-14</h4>
 
 </div>
 
@@ -411,68 +411,160 @@ Url should look something like this: “lad2.qualtrics.com”.</p>
 you can use <code>all_surveys()</code> to fetch information on your
 surveys.</p>
 <pre class="r"><code>(surveys &lt;- all_surveys()) </code></pre>
-<pre><code>## # A tibble: 6 × 6
-##   id                 name                                                   ownerId            lastModified         creationDate         isActive
-##   &lt;chr&gt;              &lt;chr&gt;                                                  &lt;chr&gt;              &lt;chr&gt;                &lt;chr&gt;                &lt;lgl&gt;   
-## 1 SV_0rearXjH2Ri6umq Student Satisfaction                                   UR_2tzUD8J770hgseN 2023-01-29T04:10:41Z 2023-01-17T21:21:43Z FALSE   
-## 2 SV_2gWVWLn2vCCDJGu Luvuyo                                                 UR_2tzUD8J770hgseN 2022-05-03T22:10:19Z 2022-05-03T22:10:10Z FALSE   
-## 3 SV_3h0HPHQbJStqb8a Pilot (USA) - Giver Motives Across Cultures - 12.17.21 UR_2tzUD8J770hgseN 2022-05-03T22:17:07Z 2022-05-03T22:10:50Z FALSE   
-## 4 SV_3Q011O6gNqwn1Nc Pen Experiment                                         UR_2tzUD8J770hgseN 2022-12-09T04:13:11Z 2022-12-06T20:02:44Z FALSE   
-## 5 SV_4YDoTFLN61nKecS Pen_Showcase                                           UR_2tzUD8J770hgseN 2023-01-29T04:23:55Z 2023-01-29T04:11:56Z TRUE    
-## 6 SV_4Yhvzriag8syz7U Prosociality Experiment                                UR_2tzUD8J770hgseN 2022-04-08T05:19:59Z 2022-04-03T19:56:04Z FALSE</code></pre>
+<pre><code>## # A tibble: 8 × 6
+##   id                 name                                                   ownerId            lastModif…¹ creat…² isAct…³
+##   &lt;chr&gt;              &lt;chr&gt;                                                  &lt;chr&gt;              &lt;chr&gt;       &lt;chr&gt;   &lt;lgl&gt;  
+## 1 SV_0rearXjH2Ri6umq Student Satisfaction                                   UR_2tzUD8J770hgseN 2023-01-29… 2023-0… FALSE  
+## 2 SV_2gWVWLn2vCCDJGu Luvuyo                                                 UR_2tzUD8J770hgseN 2022-05-03… 2022-0… FALSE  
+## 3 SV_3h0HPHQbJStqb8a Pilot (USA) - Giver Motives Across Cultures - 12.17.21 UR_2tzUD8J770hgseN 2022-05-03… 2022-0… FALSE  
+## 4 SV_3Q011O6gNqwn1Nc Pen Experiment                                         UR_2tzUD8J770hgseN 2022-12-09… 2022-1… FALSE  
+## 5 SV_4YDoTFLN61nKecS Pen_Showcase                                           UR_2tzUD8J770hgseN 2023-01-29… 2023-0… TRUE   
+## 6 SV_4Yhvzriag8syz7U Prosociality Experiment                                UR_2tzUD8J770hgseN 2023-02-08… 2022-0… FALSE  
+## 7 SV_bJIs8lwz4CfAAgS test                                                   UR_2tzUD8J770hgseN 2023-02-09… 2023-0… TRUE   
+## 8 SV_dnBQ3YB4rLC03J4 test2                                                  UR_2tzUD8J770hgseN 2023-02-08… 2023-0… FALSE  
+## # … with abbreviated variable names ¹​lastModified, ²​creationDate, ³​isActive</code></pre>
 <p>Once you select the questionnaire you want you can refer to it using
-<code>id</code>.</p>
-<pre class="r"><code>survey_data &lt;- fetch_survey(surveyID = &quot;SV_0rearXjH2Ri6umq&quot;, 
-             verbose = TRUE)</code></pre>
-<pre><code>## Loading saved prior download for surveyID = SV_0rearXjH2Ri6umq.
-## • Set `force_request = TRUE` to override this.</code></pre>
+<code>id</code>. If you want redownload the data set
+<code>force_request = TRUE</code>, otherwise it will load prior saved
+download.</p>
+<pre class="r"><code>survey_data &lt;- fetch_survey(surveyID = &quot;SV_bJIs8lwz4CfAAgS&quot;, 
+             verbose = TRUE,force_request = TRUE)</code></pre>
+<pre><code>## 
+  |                                                                                                                      
+  |                                                                                                                |   0%
+  |                                                                                                                      
+  |================================================================================================================| 100%</code></pre>
+<pre><code>## 
+## ── Column specification ──────────────────────────────────────────────────────────────────────────────────────────────────
+## cols(
+##   .default = col_double(),
+##   StartDate = col_datetime(format = &quot;&quot;),
+##   EndDate = col_datetime(format = &quot;&quot;),
+##   Status = col_character(),
+##   IPAddress = col_character(),
+##   Finished = col_logical(),
+##   RecordedDate = col_datetime(format = &quot;&quot;),
+##   ResponseId = col_character(),
+##   RecipientLastName = col_logical(),
+##   RecipientFirstName = col_logical(),
+##   RecipientEmail = col_logical(),
+##   ExternalReference = col_logical(),
+##   DistributionChannel = col_character(),
+##   UserLanguage = col_character(),
+##   Consent = col_character(),
+##   Gender = col_character(),
+##   Name = col_character(),
+##   Competitive = col_character(),
+##   Pizzas_1 = col_character(),
+##   Pizzas_2 = col_character(),
+##   Pizzas_3 = col_character()
+##   # ... with 20 more columns
+## )
+## ℹ Use `spec()` for the full column specifications.</code></pre>
 <pre class="r"><code>survey_data %&gt;% glimpse()</code></pre>
-<pre><code>## Rows: 30
-## Columns: 32
-## $ StartDate               &lt;dttm&gt; 2023-01-17 13:23:17, 2023-01-17 13:23:17, 2023-01-17 13:23:18, 2023-01-17 13:23:18, 2023-01-17 13:23:18, 2023-01-17 13:23:18, 2023-01-17…
-## $ EndDate                 &lt;dttm&gt; 2023-01-17 13:23:17, 2023-01-17 13:23:17, 2023-01-17 13:23:18, 2023-01-17 13:23:18, 2023-01-17 13:23:18, 2023-01-17 13:23:18, 2023-01-17…
-## $ Status                  &lt;chr&gt; &quot;Survey Test&quot;, &quot;Survey Test&quot;, &quot;Survey Test&quot;, &quot;Survey Test&quot;, &quot;Survey Test&quot;, &quot;Survey Test&quot;, &quot;Survey Test&quot;, &quot;Survey Test&quot;, &quot;Survey Test&quot;, &quot;S…
-## $ IPAddress               &lt;lgl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA
-## $ Progress                &lt;dbl&gt; 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 10…
-## $ `Duration (in seconds)` &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
-## $ Finished                &lt;lgl&gt; TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, TRUE,…
-## $ RecordedDate            &lt;dttm&gt; 2023-01-17 13:23:17, 2023-01-17 13:23:17, 2023-01-17 13:23:18, 2023-01-17 13:23:18, 2023-01-17 13:23:18, 2023-01-17 13:23:19, 2023-01-17 …
-## $ ResponseId              &lt;chr&gt; &quot;R_4100FhgKqgTwSuG&quot;, &quot;R_7NH5W2wRUJpEpro&quot;, &quot;R_51j9igCJ2pF7D9Q&quot;, &quot;R_8bNsods1OPLjMiy&quot;, &quot;R_6lJ5wyv0KMxIoYu&quot;, &quot;R_cD999leZX8dt0W2&quot;, &quot;R_1Nrmffvt…
-## $ RecipientLastName       &lt;lgl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA
-## $ RecipientFirstName      &lt;lgl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA
-## $ RecipientEmail          &lt;lgl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA
-## $ ExternalReference       &lt;lgl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA
-## $ LocationLatitude        &lt;dbl&gt; 37.7833, 37.7833, 37.7833, 37.7833, 37.7833, 37.7833, 37.7833, 37.7833, 37.7833, 37.7833, 37.7833, 37.7833, 37.7833, 37.7833, 37.7833, 3…
-## $ LocationLongitude       &lt;dbl&gt; -122.4952, -122.4952, -122.4952, -122.4952, -122.4952, -122.4952, -122.4952, -122.4952, -122.4952, -122.4952, -122.4952, -122.4952, -122.…
-## $ DistributionChannel     &lt;chr&gt; &quot;test&quot;, &quot;test&quot;, &quot;test&quot;, &quot;test&quot;, &quot;test&quot;, &quot;test&quot;, &quot;test&quot;, &quot;test&quot;, &quot;test&quot;, &quot;test&quot;, &quot;test&quot;, &quot;test&quot;, &quot;test&quot;, &quot;test&quot;, &quot;test&quot;, &quot;test&quot;, &quot;test&quot;, &quot;…
-## $ UserLanguage            &lt;lgl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA
-## $ Q1                      &lt;ord&gt; Slightly unhelpful, Extremely helpful, Extremely helpful, Slightly unhelpful, Slightly unhelpful, Extremely unhelpful, Neither helpful no…
-## $ Q2                      &lt;ord&gt; Slightly easy, Slightly easy, Extremely easy, Moderately difficult, Moderately easy, Moderately difficult, Extremely easy, Moderately eas…
-## $ Q3                      &lt;ord&gt; Extremely useful, Very useful, Moderately useful, Not useful at all, Very useful, Not useful at all, Moderately useful, Moderately useful…
-## $ Q4                      &lt;ord&gt; Slightly helpful, Extremely helpful, Moderately helpful, Moderately helpful, Extremely helpful, Slightly unhelpful, Moderately helpful, M…
-## $ Q5                      &lt;ord&gt; Moderately well, Moderately well, Very well, Extremely well, Very well, Very well, Slightly well, Slightly well, Not well at all, Very we…
-## $ Q6                      &lt;ord&gt; Extremely unsafe, Moderately safe, Extremely unsafe, Neither safe nor unsafe, Slightly safe, Moderately unsafe, Moderately unsafe, Slight…
-## $ Q7                      &lt;ord&gt; Extremely bad, Slightly good, Neither good nor bad, Slightly bad, Moderately good, Moderately good, Moderately bad, Slightly bad, Moderat…
-## $ Q8                      &lt;ord&gt; Satisfied, Satisfied, Dissatisfied, Very Satisfied, Neutral, Neutral, Dissatisfied, Somewhat Satisfied, Neutral, Somewhat Dissatisfied, S…
-## $ Q9                      &lt;ord&gt; Not well at all, Not well at all, Extremely well, Not well at all, Extremely well, Moderately well, Extremely well, Extremely well, Moder…
-## $ Q10                     &lt;ord&gt; Slightly easy, Moderately difficult, Moderately easy, Extremely difficult, Slightly difficult, Moderately difficult, Extremely easy, Extr…
-## $ Q12                     &lt;ord&gt; Extremely unreasonable, Slightly reasonable, Slightly unreasonable, Extremely unreasonable, Slightly reasonable, Neither reasonable nor u…
-## $ Q13                     &lt;ord&gt; Dissatisfied, Very Dissatisfied, Somewhat Satisfied, Very Dissatisfied, Dissatisfied, Dissatisfied, Very Dissatisfied, Satisfied, Somewha…
-## $ Q14                     &lt;ord&gt; Very Unlikely, Unlikely, Undecided, Very Likely, Somewhat Likely, Likely, Undecided, Very Likely, Likely, Very Unlikely, Undecided, Very …
-## $ Q15_NPS_GROUP           &lt;chr&gt; &quot;Detractor&quot;, &quot;Detractor&quot;, &quot;Detractor&quot;, &quot;Passive&quot;, &quot;Passive&quot;, &quot;Detractor&quot;, &quot;Detractor&quot;, &quot;Detractor&quot;, &quot;Promoter&quot;, &quot;Detractor&quot;, &quot;Passive&quot;, &quot;…
-## $ Q15                     &lt;dbl&gt; 2, 0, 0, 7, 7, 0, 1, 3, 10, 6, 8, 9, 10, 0, 3, 3, 9, 7, 3, 7, 1, 3, 9, 3, 10, 6, 10, 4, 4, 3</code></pre>
+<pre><code>## Rows: 20
+## Columns: 89
+## $ StartDate                 &lt;dttm&gt; 2023-02-07 16:00:52, 2023-02-07 16:01:17, 2023-02-07 16:02:27, 2023-02-07 16:01:11, 2…
+## $ EndDate                   &lt;dttm&gt; 2023-02-07 16:04:08, 2023-02-07 16:04:08, 2023-02-07 16:04:12, 2023-02-07 16:04:18, 2…
+## $ Status                    &lt;chr&gt; &quot;IP Address&quot;, &quot;IP Address&quot;, &quot;IP Address&quot;, &quot;IP Address&quot;, &quot;IP Address&quot;, &quot;IP Address&quot;, &quot;I…
+## $ IPAddress                 &lt;chr&gt; &quot;138.202.129.171&quot;, &quot;138.202.129.164&quot;, &quot;138.202.129.43&quot;, &quot;138.202.41.172&quot;, &quot;138.202.129…
+## $ Progress                  &lt;dbl&gt; 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 1…
+## $ `Duration (in seconds)`   &lt;dbl&gt; 196, 171, 104, 187, 189, 198, 210, 209, 180, 148, 240, 237, 253, 210, 82, 254, 223, 22…
+## $ Finished                  &lt;lgl&gt; TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, TR…
+## $ RecordedDate              &lt;dttm&gt; 2023-02-07 16:04:09, 2023-02-07 16:04:09, 2023-02-07 16:04:12, 2023-02-07 16:04:19, 2…
+## $ ResponseId                &lt;chr&gt; &quot;R_3r385toH6wjBmyr&quot;, &quot;R_2usVBjQ7yXrmY72&quot;, &quot;R_WpavnnqS8owFQFb&quot;, &quot;R_s7oxQ1EVcgd5C7f&quot;, &quot;R…
+## $ RecipientLastName         &lt;lgl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA
+## $ RecipientFirstName        &lt;lgl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA
+## $ RecipientEmail            &lt;lgl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA
+## $ ExternalReference         &lt;lgl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA
+## $ LocationLatitude          &lt;dbl&gt; 37.78, 37.78, 37.78, 37.78, 37.78, 37.78, 37.78, 37.78, 37.78, 37.78, 37.78, 37.78, 37…
+## $ LocationLongitude         &lt;dbl&gt; -122.465, -122.465, -122.465, -122.465, -122.465, -122.465, -122.465, -122.465, -122.4…
+## $ DistributionChannel       &lt;chr&gt; &quot;anonymous&quot;, &quot;anonymous&quot;, &quot;anonymous&quot;, &quot;anonymous&quot;, &quot;anonymous&quot;, &quot;anonymous&quot;, &quot;anonymo…
+## $ UserLanguage              &lt;chr&gt; &quot;EN&quot;, &quot;EN&quot;, &quot;EN&quot;, &quot;EN&quot;, &quot;EN&quot;, &quot;EN&quot;, &quot;EN&quot;, &quot;EN&quot;, &quot;EN&quot;, &quot;EN&quot;, &quot;EN&quot;, &quot;EN&quot;, &quot;EN&quot;, &quot;EN&quot;, &quot;E…
+## $ Consent                   &lt;ord&gt; Yes, Yes, Yes, Yes, Yes, Yes, Yes, Yes, Yes, Yes, Yes, Yes, Yes, Yes, Yes, Yes, Yes, Y…
+## $ Gender                    &lt;ord&gt; Female, Female, Male, Male, Male, Male, Male, Male, Male, Female, Female, Female, Male…
+## $ Name                      &lt;chr&gt; &quot;Tasha&quot;, &quot;Khushboo Patel&quot;, &quot;Nikita&quot;, &quot;Lawrence Sao&quot;, &quot;Bryce&quot;, &quot;Zhenyu Liu&quot;, &quot;Luc Borde…
+## $ Competitive               &lt;ord&gt; Competitive, Competitive, Competitive, Competitive, Competitive, Very Competitive, Ver…
+## $ Pizzas_1                  &lt;chr&gt; &quot;Margherita&quot;, NA, NA, &quot;Margherita&quot;, &quot;Margherita&quot;, NA, &quot;Margherita&quot;, &quot;Margherita&quot;, &quot;Mar…
+## $ Pizzas_2                  &lt;chr&gt; &quot;Pepperoni&quot;, NA, NA, &quot;Pepperoni&quot;, &quot;Pepperoni&quot;, NA, &quot;Pepperoni&quot;, NA, NA, NA, &quot;Pepperoni…
+## $ Pizzas_3                  &lt;chr&gt; NA, &quot;BBQ Chicken&quot;, NA, NA, &quot;BBQ Chicken&quot;, &quot;BBQ Chicken&quot;, &quot;BBQ Chicken&quot;, &quot;BBQ Chicken&quot;,…
+## $ Pizzas_4                  &lt;chr&gt; &quot;Hawaiian&quot;, NA, NA, NA, &quot;Hawaiian&quot;, NA, &quot;Hawaiian&quot;, &quot;Hawaiian&quot;, NA, NA, &quot;Hawaiian&quot;, &quot;H…
+## $ Pizzas_5                  &lt;chr&gt; &quot;Veggie&quot;, &quot;Veggie&quot;, &quot;Veggie&quot;, &quot;Veggie&quot;, &quot;Veggie&quot;, NA, &quot;Veggie&quot;, NA, NA, NA, &quot;Veggie&quot;, …
+## $ Pizzas_6                  &lt;chr&gt; NA, NA, NA, NA, NA, &quot;I also love that one:&quot;, &quot;I also love that one:&quot;, NA, &quot;I also love…
+## $ Pizzas_7                  &lt;lgl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA
+## $ Pizzas_6_TEXT             &lt;chr&gt; NA, NA, NA, NA, NA, &quot;Garlic White Chinese beef and chicken&quot;, &quot;every kind&quot;, NA, &quot;Bacon …
+## $ Pizzas_DO_1               &lt;dbl&gt; 5, 1, 2, 4, 5, 3, 1, 1, 5, 5, 3, 1, 5, 1, 4, 4, 4, 2, 2, 1
+## $ Pizzas_DO_2               &lt;dbl&gt; 3, 3, 5, 1, 3, 2, 3, 3, 1, 4, 2, 5, 3, 3, 5, 2, 5, 4, 1, 2
+## $ Pizzas_DO_3               &lt;dbl&gt; 2, 2, 3, 5, 4, 1, 4, 5, 2, 2, 1, 3, 1, 2, 2, 3, 1, 5, 3, 4
+## $ Pizzas_DO_4               &lt;dbl&gt; 1, 4, 1, 3, 2, 5, 2, 2, 3, 1, 5, 4, 2, 5, 1, 5, 3, 3, 5, 5
+## $ Pizzas_DO_5               &lt;dbl&gt; 4, 5, 4, 2, 1, 4, 5, 4, 4, 3, 4, 2, 4, 4, 3, 1, 2, 1, 4, 3
+## $ Pizzas_DO_6               &lt;dbl&gt; 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6
+## $ Pizzas_DO_7               &lt;dbl&gt; 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7
+## $ `1_Taste`                 &lt;dbl&gt; 5, NA, NA, 5, 3, NA, 3, 4, 4, 5, 4, NA, NA, NA, NA, NA, NA, 2, 5, 4
+## $ `1_Healthiness`           &lt;dbl&gt; 5, NA, NA, 4, 4, NA, 2, 3, 3, 5, 2, NA, NA, NA, NA, NA, NA, 4, 4, 2
+## $ `1_Ease_Of_Preparation`   &lt;dbl&gt; 5, NA, NA, 4, 4, NA, 4, 3, 4, 3, 3, NA, NA, NA, NA, 5, NA, 4, 5, 3
+## $ `2_Taste`                 &lt;lgl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA
+## $ `2_Healthiness`           &lt;lgl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA
+## $ `2_Ease_Of_Preparation`   &lt;lgl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA
+## $ `3_Taste`                 &lt;dbl&gt; NA, NA, NA, NA, NA, 4, 5, NA, 4, NA, NA, NA, NA, NA, NA, NA, NA, 5, NA, NA
+## $ `3_Healthiness`           &lt;dbl&gt; NA, NA, NA, NA, NA, 3, 3, NA, 2, NA, NA, NA, NA, NA, NA, NA, NA, 3, NA, NA
+## $ `3_Ease_Of_Preparation`   &lt;dbl&gt; NA, NA, NA, NA, NA, 3, 4, NA, 3, NA, NA, NA, NA, NA, NA, NA, NA, 2, NA, NA
+## $ `9_Taste`                 &lt;dbl&gt; 5, NA, NA, 5, 5, NA, 5, NA, NA, NA, 5, NA, 4, 4, NA, 5, NA, 5, 5, 4
+## $ `9_Healthiness`           &lt;dbl&gt; 3, NA, NA, 3, 2, NA, 2, NA, NA, NA, 2, NA, 4, 3, NA, NA, NA, 3, NA, 2
+## $ `9_Ease_Of_Preparation`   &lt;dbl&gt; 5, NA, NA, 5, 4, NA, 4, NA, NA, NA, 4, NA, NA, 3, NA, NA, NA, 5, NA, 3
+## $ `10_Taste`                &lt;dbl&gt; NA, 5, NA, NA, 5, 5, 3, 4, 4, NA, 4, NA, 4, NA, 5, NA, 5, NA, NA, NA
+## $ `10_Healthiness`          &lt;dbl&gt; NA, NA, NA, NA, 2, 3, 2, 3, 3, NA, 2, NA, 4, NA, NA, NA, 3, NA, NA, NA
+## $ `10_Ease_Of_Preparation`  &lt;dbl&gt; NA, NA, NA, NA, 3, 3, 2, 3, 2, NA, 3, NA, NA, NA, NA, NA, 3, NA, NA, NA
+## $ `11_Taste`                &lt;dbl&gt; 5, NA, NA, NA, 4, NA, 5, 4, NA, NA, 4, 5, NA, NA, NA, 5, NA, NA, NA, NA
+## $ `11_Healthiness`          &lt;dbl&gt; 4, NA, NA, NA, 2, NA, 2, 3, NA, NA, 3, 4, NA, NA, NA, NA, NA, NA, NA, NA
+## $ `11_Ease_Of_Preparation`  &lt;dbl&gt; 5, NA, NA, NA, 3, NA, 3, 2, NA, NA, 2, 3, NA, NA, NA, NA, NA, NA, NA, NA
+## $ `12_Taste`                &lt;dbl&gt; 5, 4, 4, 4, 4, NA, 3, NA, NA, NA, 4, NA, NA, NA, NA, NA, NA, NA, 4, 3
+## $ `12_Healthiness`          &lt;dbl&gt; 5, 2, 5, 5, 4, NA, 3, NA, NA, NA, 4, NA, NA, NA, NA, 5, NA, NA, 5, 2
+## $ `12_Ease_Of_Preparation`  &lt;dbl&gt; 4, 3, 3, 3, 2, NA, 2, NA, NA, NA, 3, NA, NA, NA, NA, NA, NA, NA, 5, 3
+## $ `match timer_First Click` &lt;dbl&gt; 0.000, 0.000, 0.000, 0.000, 20.317, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 1…
+## $ `match timer_Last Click`  &lt;dbl&gt; 0.000, 0.000, 0.000, 0.000, 20.317, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 1…
+## $ `match timer_Page Submit` &lt;dbl&gt; 8.296, 12.572, 7.955, 22.206, 21.188, 7.224, 9.886, 21.624, 14.895, 7.375, 22.540, 8.5…
+## $ `match timer_Click Count` &lt;dbl&gt; 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, NA, NA
+## $ transfer                  &lt;dbl&gt; 50, NA, 35, NA, 49, NA, NA, 35, NA, 10, 50, NA, 50, NA, NA, 50, NA, 69, NA, NA
+## $ `get timer_First Click`   &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NA, NA
+## $ `get timer_Last Click`    &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NA, NA
+## $ `get timer_Page Submit`   &lt;dbl&gt; 4.999, 15.967, 32.000, 2.787, 3.006, 10.538, 13.775, 2.800, 2.956, 18.019, 2.991, 11.3…
+## $ `get timer_Click Count`   &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NA, NA
+## $ decision...67             &lt;chr&gt; NA, &quot;I accept A&#39;s offer.\n(You get ${e://Field/offer} units, A gets $e{e://Field/total…
+## $ Q23                       &lt;ord&gt; Yes, Absolutely, Absolutely, Yes, Yes, Yes, Absolutely, Yes, Absolutely, Absolutely, A…
+## $ researcherID              &lt;chr&gt; &quot;hTtZNw8TA0&quot;, &quot;hTtZNw8TA0&quot;, &quot;hTtZNw8TA0&quot;, &quot;hTtZNw8TA0&quot;, &quot;hTtZNw8TA0&quot;, &quot;hTtZNw8TA0&quot;, &quot;h…
+## $ studyID                   &lt;chr&gt; &quot;test&quot;, &quot;test&quot;, &quot;test&quot;, &quot;test&quot;, &quot;test&quot;, &quot;test&quot;, &quot;test&quot;, &quot;test&quot;, &quot;test&quot;, &quot;test&quot;, &quot;test&quot;…
+## $ groupID                   &lt;dbl&gt; 6, 6, 5, 5, 7, 7, 8, 8, 9, 9, 10, 10, 11, 11, 12, 12, 14, 14, NA, NA
+## $ participantID             &lt;chr&gt; &quot;R_3r385toH6wjBmyr&quot;, &quot;R_2usVBjQ7yXrmY72&quot;, &quot;R_WpavnnqS8owFQFb&quot;, &quot;R_s7oxQ1EVcgd5C7f&quot;, &quot;R…
+## $ groupSize                 &lt;dbl&gt; 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2
+## $ numStages                 &lt;dbl&gt; 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2
+## $ roles                     &lt;chr&gt; &quot;A,B&quot;, &quot;A,B&quot;, &quot;A,B&quot;, &quot;A,B&quot;, &quot;A,B&quot;, &quot;A,B&quot;, &quot;A,B&quot;, &quot;A,B&quot;, &quot;A,B&quot;, &quot;A,B&quot;, &quot;A,B&quot;, &quot;A,B&quot;, &quot;A…
+## $ participantRole           &lt;chr&gt; &quot;A&quot;, &quot;B&quot;, &quot;A&quot;, &quot;B&quot;, &quot;A&quot;, &quot;B&quot;, &quot;B&quot;, &quot;A&quot;, &quot;B&quot;, &quot;A&quot;, &quot;A&quot;, &quot;B&quot;, &quot;A&quot;, &quot;B&quot;, &quot;B&quot;, &quot;A&quot;, &quot;B&quot;, &quot;…
+## $ timeOutLog                &lt;chr&gt; &quot;OK -- no issues&quot;, &quot;OK -- no issues&quot;, &quot;OK -- no issues&quot;, &quot;OK -- no issues&quot;, &quot;OK -- no …
+## $ botMatch                  &lt;chr&gt; &quot;no&quot;, &quot;no&quot;, &quot;no&quot;, &quot;no&quot;, &quot;no&quot;, &quot;no&quot;, &quot;no&quot;, &quot;no&quot;, &quot;no&quot;, &quot;no&quot;, &quot;no&quot;, &quot;no&quot;, &quot;no&quot;, &quot;no&quot;, &quot;n…
+## $ total                     &lt;dbl&gt; 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 1…
+## $ offer                     &lt;dbl&gt; 50, 50, 35, 35, 49, 49, 35, 35, 10, 10, 50, 50, 50, 50, 50, 50, 69, 69, NA, NA
+## $ decision...81             &lt;dbl&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, NA, NA
+## $ payoff                    &lt;dbl&gt; 50, 50, 65, 35, 51, 49, 35, 65, 10, 90, 50, 50, 50, 50, 50, 50, 69, 31, 0, 0
+## $ sendStage                 &lt;dbl&gt; 1, 2, 1, 2, 1, 2, 2, 1, 2, 1, 1, 2, 1, 2, 2, 1, 2, 1, NA, NA
+## $ sendData                  &lt;chr&gt; &quot;offer&quot;, &quot;decision&quot;, &quot;offer&quot;, &quot;decision&quot;, &quot;offer&quot;, &quot;decision&quot;, &quot;decision&quot;, &quot;offer&quot;, &quot;d…
+## $ getStage                  &lt;dbl&gt; 2, 1, 2, 1, 2, 1, 1, 2, 1, 2, 2, 1, 2, 1, 1, 2, 1, 2, NA, NA
+## $ getData                   &lt;chr&gt; &quot;B&quot;, &quot;A&quot;, &quot;B&quot;, &quot;A&quot;, &quot;B&quot;, &quot;A&quot;, &quot;A&quot;, &quot;B&quot;, &quot;A&quot;, &quot;B&quot;, &quot;B&quot;, &quot;A&quot;, &quot;B&quot;, &quot;A&quot;, &quot;A&quot;, &quot;B&quot;, &quot;A&quot;, &quot;…
+## $ defaultData               &lt;dbl&gt; 2, 20, 2, 5, 2, 71, 61, 1, 83, 2, 2, 81, 1, 22, 11, 1, 2, 2, NA, NA
+## $ saveData                  &lt;chr&gt; &quot;decision&quot;, &quot;offer&quot;, &quot;decision&quot;, &quot;offer&quot;, &quot;decision&quot;, &quot;offer&quot;, &quot;offer&quot;, &quot;decision&quot;, &quot;o…
+## $ randomPercent             &lt;dbl&gt; NA, 20, NA, 5, NA, 71, 61, NA, 83, NA, NA, 81, NA, 22, 11, NA, 2, NA, NA, NA</code></pre>
 <p>In case you want to see text of the questions use
 <code>survey_questions()</code>.</p>
-<pre class="r"><code>survey_questions &lt;- survey_questions(surveyID = &quot;SV_0rearXjH2Ri6umq&quot;)
+<pre class="r"><code>survey_questions &lt;- survey_questions(surveyID = &quot;SV_bJIs8lwz4CfAAgS&quot;)
 head(survey_questions, n = 5)</code></pre>
 <pre><code>## # A tibble: 5 × 4
-##   qid          qname       question                                                                                                                                 force…¹
-##   &lt;chr&gt;        &lt;chr&gt;       &lt;chr&gt;                                                                                                                                    &lt;lgl&gt;  
-## 1 QID93        Instruction &quot;&lt;span style=\&quot;font-weight: bolder;\&quot;&gt;Thanks for using a Qualtrics Survey Template! To get started, follow the instructions below. When… FALSE  
-## 2 QID172807697 Q1          &quot;&lt;div&gt;Thank you for participating in this student satisfaction survey. Your answers will be used to improve the student experience. &lt;/d… FALSE  
-## 3 QID172807701 Q2          &quot;How easy or difficult is it to obtain the resources that you need from the university library system?&quot;                                  FALSE  
-## 4 QID172807686 Q3          &quot;How useful are the services provided at the on-campus career center?&quot;                                                                   FALSE  
-## 5 QID172807685 Q4          &quot;How helpful or unhelpful is the staff at the on-campus health center?&quot;                                                                  FALSE  
+##   qid   qname        question                                                                                      force…¹
+##   &lt;chr&gt; &lt;chr&gt;        &lt;chr&gt;                                                                                         &lt;lgl&gt;  
+## 1 QID25 Introduction &quot;Welcome to the &lt;strong&gt;University of San Francisco&lt;/strong&gt;&amp;#39;s Ultimatum Game Survey!&lt;br… FALSE  
+## 2 QID26 Consent      &quot;Do you agree to participate in the survey?&quot;                                                  TRUE   
+## 3 QID21 Gender       &quot;What is your gender&quot;                                                                         TRUE   
+## 4 QID23 Name         &quot;What is your Name?&quot;                                                                          FALSE  
+## 5 QID22 Competitive  &quot;Would you consider yourself competitive?&quot;                                                    FALSE  
 ## # … with abbreviated variable name ¹​force_resp</code></pre>
 </div>
 </div>
