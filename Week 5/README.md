@@ -17,11 +17,11 @@ vignette](http://www.sthda.com/english/wiki/qplot-quick-plot-with-ggplot2-r-soft
 
     data_raven %>% pull(pr_correct) %>% hist() 
 
-![](../Week%205/README_files/figure-markdown_strict/unnamed-chunk-4-1.png)
+![](../Week%205/README_files/figure-markdown_strict/unnamed-chunk-2-1.png)
 
     data_raven %>% qplot(pr_correct, data = ., geom = 'histogram', bins = length(unique(data_raven$pr_correct)))
 
-![](../Week%205/README_files/figure-markdown_strict/unnamed-chunk-4-2.png)
+![](../Week%205/README_files/figure-markdown_strict/unnamed-chunk-2-2.png)
 
 ## `ggplot()`
 
@@ -47,7 +47,7 @@ building them. For example, let’s improve the histogram from earlier!
            y = "Subject Count", 
            title = "Distribution of Correct Answers in Piece-rate Game")
 
-![](../Week%205/README_files/figure-markdown_strict/unnamed-chunk-5-1.png)
+![](../Week%205/README_files/figure-markdown_strict/unnamed-chunk-3-1.png)
 
 Ah much better! We added labels, removed unnecessary grid lines, and
 added some color. If you want to learn more about ggplot check out
@@ -85,38 +85,47 @@ visualizations more engaging and appealing, which can help hold viewers’
 attention and make them more likely to understand and remember the
 information being presented.
 
+Color evokes emotional responses that can influence people’s emotions
+and perception. Colors being out different emotions for example in the
+US red is associated with danger or passion, blue with calmness or
+sadness, and green with nature or health. Cultures have attach different
+meaning to colors, so tailor color to your audience to elicit desired
+responses. Color is believed to be so powerful that locker room at
+Iowa’s Kinnick Stadium has been painted pink since 1979 with an idea to
+lower opponent’s testosterone levels.
+
 ![src:
 <http://inkfumes.blogspot.com/2011/10/poster-designs-color-design-typography.html>](images/COLORTHEORY_A.jpeg)
-
-## Categorical Data
+\## Categorical Data
 
 ### Highlight Important Point
 
+    ## Loading required package: grid
+
 We use color to emphasize certain data and give context. Below are
-graphs comparing GDP of European Countries in 1997. First Graph has give
+graphs comparing GDP of European Countries in 1997. First Graph gives
 each country its own color, creating a “explosion at a candy factory”.
 Second graph is an improvement as it removes the distraction, emphasizes
-the country of the interest by greying out the rest and painting
-“Greece”. The “Red” color signals that Greece might be doing not so
-well.
+the country of the interest by highlighting “Greece” and greying out the
+rest. The “Red” color signals that Greece might be doing not so well.
 
-![](../Week%205/README_files/figure-markdown_strict/unnamed-chunk-9-1.png)
+![](../Week%205/README_files/figure-markdown_strict/unnamed-chunk-7-1.png)
 
 ### Comparing Two Things
 
 #### Complementary Harmony with a Positive/Negative Connotation
 
-Complementary Harmony refers to the use of colors that are opposite to
-each other on the color wheel to create a strong contrast. This creates
-a positive/negative connotation that is good for showcasing differences.
+Complementary Harmony refers to the use of colors that are opposite each
+other on the color wheel to create a strong contrast. This creates a
+positive/negative connotation that is good for showcasing differences.
 Colors near each other on the wheel can also work well together, but
 opposite colors provide the strongest support for a key color. The
 example below shows the comparison between population of Asia and
-Europe. The use of bright purple emphasizes the significant population
+Europe. The use of bright purple emphasizes the outstanding population
 growth of Asia, while the green color highlights the slower population
 growth in Europe.
 
-![](../Week%205/README_files/figure-markdown_strict/unnamed-chunk-11-1.png)
+![](../Week%205/README_files/figure-markdown_strict/unnamed-chunk-9-1.png)
 
 #### Near Complementary Harmony for Highlighting Two Series Where One Is the Primary Focus
 
@@ -132,7 +141,7 @@ highlights the importance of population growth in Asia, with Europe
 being presented neutrally as a point of comparison rather than as a
 slow-growing region.
 
-![](../Week%205/README_files/figure-markdown_strict/unnamed-chunk-12-1.png)
+![](../Week%205/README_files/figure-markdown_strict/unnamed-chunk-10-1.png)
 
 ### Color Palettes for Comparing Three Things
 
@@ -145,7 +154,7 @@ color wheel for greater contrast, but may lose the emphasis on the key
 color. The example below displays the population of three countries
 without any specific emphasis.
 
-![](../Week%205/README_files/figure-markdown_strict/unnamed-chunk-13-1.png)
+![](../Week%205/README_files/figure-markdown_strict/unnamed-chunk-11-1.png)
 
 #### Highlighting One Series Against Two Related Series
 
@@ -161,7 +170,7 @@ highlights the GDPs of 3 countries with emphasis on Asia through the use
 of the purple color. Europe and the Americas are depicted with similar
 shades of green, indicating their lesser significance for the narrative.
 
-![](../Week%205/README_files/figure-markdown_strict/unnamed-chunk-14-1.png)
+![](../Week%205/README_files/figure-markdown_strict/unnamed-chunk-12-1.png)
 
 ### Color Palettes for Comparing Four Things
 
@@ -176,7 +185,7 @@ between the three complementary colors make the key color stand out. The
 example below shows Malaysian Economic Miracle in comparison to
 Malaysia’s three neighbors.
 
-![](../Week%205/README_files/figure-markdown_strict/unnamed-chunk-15-1.png)
+![](../Week%205/README_files/figure-markdown_strict/unnamed-chunk-13-1.png)
 
 #### Double Complementary for Two Pairs Where One Pair Is Dominant
 
@@ -188,12 +197,12 @@ color and its adjacent color to serve as their respective partners. It
 is recommended that the key color and its adjacent color be warmer
 colors, while the complementary colors should be cooler colors. This
 scheme works well for highlighting two pairs where one pair is dominant.
-Below is an example that compares the GDP of two top and two bottom
+Below is an example that compares the GDP of the two top and two bottom
 countries in 1952. Switzerland and Norway are assigned purple-ish
 colors, putting them in one group, while Bosnia and Albania are assigned
-a green-blue colors to differentiate them.
+green-blue colors to differentiate them.
 
-![](../Week%205/README_files/figure-markdown_strict/unnamed-chunk-16-1.png)
+![](../Week%205/README_files/figure-markdown_strict/unnamed-chunk-14-1.png)
 
 #### Rectangular or Square Complementary for Four Series of Equal Emphasis
 
@@ -211,7 +220,7 @@ industrialization from the 1960s to 1990s. Hong Kong, Singapore, South
 Korea, and Taiwan are all equally important with the emphasis on the
 dynamic of their economies.
 
-![](../Week%205/README_files/figure-markdown_strict/unnamed-chunk-17-1.png)
+![](../Week%205/README_files/figure-markdown_strict/unnamed-chunk-15-1.png)
 
 ### Sequential and Divergent
 
@@ -224,7 +233,16 @@ Let’s use our beloved purple to GDP of different countries.
 
 #### Sequential
 
-![](../Week%205/README_files/figure-markdown_strict/unnamed-chunk-20-1.png)
+    ## Linking to GEOS 3.11.0, GDAL 3.5.3, PROJ 9.1.0; sf_use_s2() is TRUE
+
+    ## 
+    ## Attaching package: 'rnaturalearthdata'
+
+    ## The following object is masked from 'package:rnaturalearth':
+    ## 
+    ##     countries110
+
+![](../Week%205/README_files/figure-markdown_strict/unnamed-chunk-18-1.png)
 
 #### Divergent
 
@@ -238,7 +256,7 @@ keep the color scheme simple to avoid diluting the meaning and confusing
 the audience. Proper use of colors can reduce the cognitive load and
 help people understand complex information more easily.
 
-![](../Week%205/README_files/figure-markdown_strict/unnamed-chunk-21-1.png)
+![](../Week%205/README_files/figure-markdown_strict/unnamed-chunk-19-1.png)
 
 ### Prebuilt
 
@@ -251,7 +269,7 @@ interpret data visualizations, as they use colors with consistent visual
 contrast. Using prebuilt color scales can help ensure that data
 visualizations are accessible to the widest possible audience.
 
-![](../Week%205/README_files/figure-markdown_strict/unnamed-chunk-22-1.png)
+![](../Week%205/README_files/figure-markdown_strict/unnamed-chunk-20-1.png)
 
 ### Color Systems
 
@@ -280,7 +298,6 @@ The HSL color system describes colors using three parameters: hue,
 saturation, and lightness. Hue is represented by a value from 0 to 360
 degrees on the color wheel, and determines the basic color of the pixel.
 Saturation represents the purity of the hue, or how much gray is mixed
-
 into the color. Saturation ranges from 0% (gray) to 100% (pure hue).
 Lightness, on the other hand, represents the amount of white or black
 mixed with the color, with 0% being black, 50% being the original color,
@@ -294,17 +311,11 @@ color.
 #### HSV
 
 The HSV color system describes colors using three parameters: hue,
-saturation, and value. Hue is represented by a value from 0 to 360
-degrees on the color wheel, and determines the basic color of the pixel.
-Saturation represents the purity of the hue, or how much white or gray
-is mixed into the color. Saturation ranges from 0% (gray) to 100% (pure
-hue). Value represents the brightness of the pixel, with 0% being black
-and 100% being the brightest possible color. The HSV color system is
-often used in graphics and image editing software, as it allows for easy
-selection of colors based on the hue, saturation, and value parameters.
-However, it has some limitations, such as not being perceptually
-uniform, meaning that changes in the numeric values of the parameters
-may not correspond to equal changes in the perceived color.
+saturation, and value. Hue and saturation are the same as in HSL. Value
+represents the brightness of the pixel, with 0% being black and 100%
+being the brightest possible color. The HSV color system is often used
+in graphics and image editing software, as it allows for easy selection
+of colors. However, it is also not perceptually uniform.
 
 #### LAB
 
@@ -315,13 +326,13 @@ position between red/magenta and green), and b (the position between
 yellow and blue). The L parameter represents the brightness of the
 color, ranging from 0 (black) to 100 (white). The a and b parameters
 represent the color channels, with positive values representing colors
-in the red and green, and yellow and blue directions, respectively, and
-negative values representing colors in the opposite directions. The LAB
-color space is used in professional printing and color management
-applications, as it allows for accurate color matching across different
-devices and environments. Additionally, more recent LAB color spaces
-(ex. OKLAB) are perceptually uniform, meaning that equal distances in
-LAB color space correspond to equal steps in perceived color difference.
+in the red, and yellow directions, respectively, and negative values
+representing colors in green and blue direction. The LAB color space is
+used in professional printing and color management applications, as it
+allows for accurate color matching across different devices and
+environments. Additionally, more recent LAB color spaces (ex. OKLAB) are
+perceptually uniform, meaning that equal distances in LAB color space
+correspond to equal steps in perceived color difference.
 
 #### OKLAB
 
@@ -343,16 +354,19 @@ them with our brain. What might appear like a similar color to a machine
 for humans will not. As an example, below are two color wheels one is
 RGB (perceptually non-uniform) and the other is HCL (uniform). When the
 color spectra are viewed in Gray scale the uneven nature of RGB becomes
-apparent.
+apparent. A technical definition is that a perceptual uniform color
+space ensures that the difference between two colors (as perceived by
+the human eye) is proportional to the Euclidian distance within the
+given color space.
 
 ![uniform\_perception](images/uniform_perception.jpg)
 
 #### Warning Colormaps might Increase Risk of Death!
 
-In its infancy in 1990s data visualization as field adopted Rainbow
-Color Map with the most famous variation being Jet as default palette.
-Many researchers expressed concerns as the non-uniform nature of the
-palette introduced transitions that could be perceived incorrectly.
+In 1990s data visualization specialists adopted Rainbow Color Map with
+the most famous variation being Jet default palette. Many researchers
+expressed concerns as the non-uniform nature of the palette introduced
+transitions that could be perceived incorrectly.
 
 Rogowitz and Treinish raised concerns about the Rainbow Color Map in
 1998 “Data Visualization: The End of the Rainbow”, and Borland and
@@ -364,27 +378,35 @@ Rainbow Color map, to medical visualization problems. Their findings in
 that a perceptually uniform color map resulted in fewer diagnostic
 errors than the Rainbow Color map. So, diagnostic errors could be
 reduced by simply switching to a proper color palette. The problem of
-misuse of color still persists as overviewed by Crameri, Shephard and
-Heron in “The misuse of colour in science communication” (2020).
+misuse of color still persists as outlined by Crameri, Shephard and
+Heron in [“The misuse of colour in science
+communication”](https://www.nature.com/articles/s41467-020-19160-7)
+(2020) – a paper that I believe must be read by any scientist.
 
 ![“Image from the “Rainbow Color Map (Still Considered
 Harmful)”](images/jet_comparison.jpg) All of these issues are amplified
 once we consider that roughly 8% of all men and 0.5% of all women are
-colorblind. There three main forms of red(protan), gren(deutan), and
+colorblind. There are three main forms of red(protan), gren(deutan), and
 blue (tritan) disorders, corresponding to color sensitive cones in our
 eyes. To check whether your visualization is colorblind friendly use
-[Coblis](https://www.color-blindness.com/coblis-color-blindness-simulator/)
-and vary value across colors.
+[Coblis](https://www.color-blindness.com/coblis-color-blindness-simulator/).
+
+To improve the readability of your colors vary their value and hue, but
+try not to include both red and green into your graphics as red-green
+colorblindness is the most common. ![“Color Blind Rainbow
+Flower”](images/Color_Blindness.jpg)
 
 #### So what should you use?
 
-A simple answer would be HSL, because it is the most intuitive one and
-the easiest to make color pairs it. A more complicated answer would be
-OKHSL, which is a child of OKLAB and HSL producing a perceptually
-uniform HSL space. Try out both of them and see the difference
-[here](https://bottosson.github.io/misc/colorpicker/). Or even a better
-choice find a tested color scheme that you find pretty and use it as
-your default.
+A simple and correct answer would be to use a scientific color map that
+you find pretty and use it as your default. If you need some help use
+this graph from “The misuse of colour in science communication”.
+
+If you want to pick colors yourself use HSL, because it is the most
+intuitive one and the easiest to make color palettes in. I would also
+recommend tinkering with OKHSL, which is a child of OKLAB and HSL
+producing a perceptually uniform HSL space. Try out both of them and see
+the difference [here](https://bottosson.github.io/misc/colorpicker/).
 
 ### Where do I find color waves?
 
@@ -408,3 +430,6 @@ palettes.
 can be used to check your color palettes before creating visualizations.
 It allows you to view color sets in example plots, simulate color
 deficiencies, and modify the colors of your palette.
+
+[Scientific colour maps](https://www.fabiocrameri.ch/colourmaps/) - A
+collection of uniform and readable color maps for scientific use.
