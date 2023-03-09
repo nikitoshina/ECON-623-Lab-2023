@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Research Toolkit - 6&nbsp; Data Manipulation</title>
+<title>Research Toolkit - 4&nbsp; Data Manipulation</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -93,8 +93,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./data_viz.html" rel="next">
-<link href="./tidy_data.html" rel="prev">
+<link href="./tidy_data.html" rel="next">
+<link href="./qualtrics_api.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -133,7 +133,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Data Manipulation</span></h1>
+      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Data Manipulation</span></h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -199,7 +199,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./data_bases.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Relational Databases</span></a>
+  <a href="./data_manipulation.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Data Manipulation</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -209,7 +209,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./data_manipulation.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Data Manipulation</span></a>
+  <a href="./data_bases.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Relational Databases</span></a>
   </div>
 </li>
       </ul>
@@ -256,32 +256,32 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#basics" id="toc-basics" class="nav-link active" data-scroll-target="#basics"><span class="toc-section-number">6.1</span>  Basics</a>
+  <li><a href="#basics" id="toc-basics" class="nav-link active" data-scroll-target="#basics"><span class="toc-section-number">4.1</span>  Basics</a>
   <ul class="collapse">
-  <li><a href="#data-types" id="toc-data-types" class="nav-link" data-scroll-target="#data-types"><span class="toc-section-number">6.1.1</span>  Data Types</a></li>
+  <li><a href="#data-types" id="toc-data-types" class="nav-link" data-scroll-target="#data-types"><span class="toc-section-number">4.1.1</span>  Data Types</a></li>
   </ul></li>
-  <li><a href="#downloading-data" id="toc-downloading-data" class="nav-link" data-scroll-target="#downloading-data"><span class="toc-section-number">6.2</span>  Downloading Data</a>
+  <li><a href="#downloading-data" id="toc-downloading-data" class="nav-link" data-scroll-target="#downloading-data"><span class="toc-section-number">4.2</span>  Downloading Data</a>
   <ul class="collapse">
-  <li><a href="#example-data" id="toc-example-data" class="nav-link" data-scroll-target="#example-data"><span class="toc-section-number">6.2.1</span>  Example Data</a></li>
+  <li><a href="#example-data" id="toc-example-data" class="nav-link" data-scroll-target="#example-data"><span class="toc-section-number">4.2.1</span>  Example Data</a></li>
   </ul></li>
-  <li><a href="#basic-data-management" id="toc-basic-data-management" class="nav-link" data-scroll-target="#basic-data-management"><span class="toc-section-number">6.3</span>  Basic Data Management</a>
+  <li><a href="#basic-data-management" id="toc-basic-data-management" class="nav-link" data-scroll-target="#basic-data-management"><span class="toc-section-number">4.3</span>  Basic Data Management</a>
   <ul class="collapse">
-  <li><a href="#select" id="toc-select" class="nav-link" data-scroll-target="#select"><span class="toc-section-number">6.3.1</span>  <code>select()</code></a></li>
-  <li><a href="#filter" id="toc-filter" class="nav-link" data-scroll-target="#filter"><span class="toc-section-number">6.3.2</span>  <code>filter()</code></a></li>
-  <li><a href="#arrange" id="toc-arrange" class="nav-link" data-scroll-target="#arrange"><span class="toc-section-number">6.3.3</span>  <code>arrange()</code></a></li>
-  <li><a href="#mutate" id="toc-mutate" class="nav-link" data-scroll-target="#mutate"><span class="toc-section-number">6.3.4</span>  <code>mutate()</code></a></li>
-  <li><a href="#recode" id="toc-recode" class="nav-link" data-scroll-target="#recode"><span class="toc-section-number">6.3.5</span>  <code>recode()</code></a></li>
+  <li><a href="#select" id="toc-select" class="nav-link" data-scroll-target="#select"><span class="toc-section-number">4.3.1</span>  <code>select()</code></a></li>
+  <li><a href="#filter" id="toc-filter" class="nav-link" data-scroll-target="#filter"><span class="toc-section-number">4.3.2</span>  <code>filter()</code></a></li>
+  <li><a href="#arrange" id="toc-arrange" class="nav-link" data-scroll-target="#arrange"><span class="toc-section-number">4.3.3</span>  <code>arrange()</code></a></li>
+  <li><a href="#mutate" id="toc-mutate" class="nav-link" data-scroll-target="#mutate"><span class="toc-section-number">4.3.4</span>  <code>mutate()</code></a></li>
+  <li><a href="#recode" id="toc-recode" class="nav-link" data-scroll-target="#recode"><span class="toc-section-number">4.3.5</span>  <code>recode()</code></a></li>
   </ul></li>
-  <li><a href="#summarize" id="toc-summarize" class="nav-link" data-scroll-target="#summarize"><span class="toc-section-number">6.4</span>  <code>summarize()</code></a></li>
-  <li><a href="#group_by-and-ungroup" id="toc-group_by-and-ungroup" class="nav-link" data-scroll-target="#group_by-and-ungroup"><span class="toc-section-number">6.5</span>  <code>group_by()</code> and <code>ungroup()</code></a>
+  <li><a href="#summarize" id="toc-summarize" class="nav-link" data-scroll-target="#summarize"><span class="toc-section-number">4.4</span>  <code>summarize()</code></a></li>
+  <li><a href="#group_by-and-ungroup" id="toc-group_by-and-ungroup" class="nav-link" data-scroll-target="#group_by-and-ungroup"><span class="toc-section-number">4.5</span>  <code>group_by()</code> and <code>ungroup()</code></a>
   <ul class="collapse">
-  <li><a href="#group_by" id="toc-group_by" class="nav-link" data-scroll-target="#group_by"><span class="toc-section-number">6.5.1</span>  <code>group_by()</code></a></li>
-  <li><a href="#ungroup" id="toc-ungroup" class="nav-link" data-scroll-target="#ungroup"><span class="toc-section-number">6.5.2</span>  <code>ungroup()</code></a></li>
-  <li><a href="#rowwise" id="toc-rowwise" class="nav-link" data-scroll-target="#rowwise"><span class="toc-section-number">6.5.3</span>  <code>rowwise()</code></a></li>
+  <li><a href="#group_by" id="toc-group_by" class="nav-link" data-scroll-target="#group_by"><span class="toc-section-number">4.5.1</span>  <code>group_by()</code></a></li>
+  <li><a href="#ungroup" id="toc-ungroup" class="nav-link" data-scroll-target="#ungroup"><span class="toc-section-number">4.5.2</span>  <code>ungroup()</code></a></li>
+  <li><a href="#rowwise" id="toc-rowwise" class="nav-link" data-scroll-target="#rowwise"><span class="toc-section-number">4.5.3</span>  <code>rowwise()</code></a></li>
   </ul></li>
-  <li><a href="#count" id="toc-count" class="nav-link" data-scroll-target="#count"><span class="toc-section-number">6.6</span>  <code>count()</code></a></li>
-  <li><a href="#rename" id="toc-rename" class="nav-link" data-scroll-target="#rename"><span class="toc-section-number">6.7</span>  <code>rename()</code></a></li>
-  <li><a href="#row_number" id="toc-row_number" class="nav-link" data-scroll-target="#row_number"><span class="toc-section-number">6.8</span>  <code>row_number()</code></a></li>
+  <li><a href="#count" id="toc-count" class="nav-link" data-scroll-target="#count"><span class="toc-section-number">4.6</span>  <code>count()</code></a></li>
+  <li><a href="#rename" id="toc-rename" class="nav-link" data-scroll-target="#rename"><span class="toc-section-number">4.7</span>  <code>rename()</code></a></li>
+  <li><a href="#row_number" id="toc-row_number" class="nav-link" data-scroll-target="#row_number"><span class="toc-section-number">4.8</span>  <code>row_number()</code></a></li>
   </ul>
 </nav>
     </div>
@@ -290,7 +290,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Data Manipulation</span></h1>
+<h1 class="title d-none d-lg-block"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Data Manipulation</span></h1>
 </div>
 
 
@@ -305,8 +305,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </header>
 
 <p>Data visualization and manipulation are essential tools for understanding and communicating complex information in data analysis. R, a powerful programming language for data analysis, offers a variety of packages for creating visually appealing plots and manipulating data. One of the most popular and user-friendly collections of packages for data visualization and manipulation in R is Tidyverse created by Hadley Wickham, the Chief Scientist at RStudio. The Tidyverse is a collection of packages that covers all common tasks, it can be installed using <code>install.packages("tidyverse")</code> and activated with <code>library("tidyverse")</code>. In this introduction, we will explore the basics of using Tidyverse, we will use <code>readr</code> to read data, <code>tidyr</code> to tidy, <code>dplyr</code> to manipulate, and <code>ggplot2</code> to visualize. To learn more about the Tidyverse check out their website <a href="https://www.tidyverse.org/">https://www.tidyverse.org/</a>.</p>
-<section id="basics" class="level2" data-number="6.1">
-<h2 data-number="6.1" class="anchored" data-anchor-id="basics"><span class="header-section-number">6.1</span> Basics</h2>
+<section id="basics" class="level2" data-number="4.1">
+<h2 data-number="4.1" class="anchored" data-anchor-id="basics"><span class="header-section-number">4.1</span> Basics</h2>
 <p>Let us start with some basic concepts! We can use R as a basic calculator</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># This is a comment use "#" to comment something!</span></span>
@@ -347,8 +347,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> x <span class="sc">*</span> <span class="dv">5</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<section id="data-types" class="level3" data-number="6.1.1">
-<h3 data-number="6.1.1" class="anchored" data-anchor-id="data-types"><span class="header-section-number">6.1.1</span> Data Types</h3>
+<section id="data-types" class="level3" data-number="4.1.1">
+<h3 data-number="4.1.1" class="anchored" data-anchor-id="data-types"><span class="header-section-number">4.1.1</span> Data Types</h3>
 <p>R has a number of different data types and classes such as data.frames, which are similar to excel spreadsheets with columns and rows. We will first look at vectors. Vectors can hold multiple values of the same types. Most basic ones are numeric, character and logical.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>x</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -439,11 +439,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </section>
 </section>
-<section id="downloading-data" class="level2" data-number="6.2">
-<h2 data-number="6.2" class="anchored" data-anchor-id="downloading-data"><span class="header-section-number">6.2</span> Downloading Data</h2>
+<section id="downloading-data" class="level2" data-number="4.2">
+<h2 data-number="4.2" class="anchored" data-anchor-id="downloading-data"><span class="header-section-number">4.2</span> Downloading Data</h2>
 <p>If you are familiar with Base R (functions that come with the R on installation) you know about read.csv(). <code>readr</code> provides a number of function that solve common issues of base R read function. <code>read_csv</code> loads data 10 time faster and produces a tibble instead of a data frame while avoiding inconsistencies of the <code>read.csv</code>. ‘Wait what is tibble?’ you might ask. Tibbles is special type of data frame. There are superior to regular data frames as they load faster, maintain input types, permit columns as lists, allow non-standard variable names, and never create row names. Okay you have your data lets load it! First, you need to know the path to your data. You can go find you file and check its location and then copy paste it. If you are windows user your path might have “\”, which is an escape character. To fix that replace “\” with “/”. By copying the path you are getting absolute path “/Users/User/Documents/your_project/data/file.csv” alternatively you can use local a local path from the folder of the project “/data/file.csv”. Let’s read the data! <code>readr::</code> specifies which packages to use. Replace the text between “…” to your path.</p>
-<section id="example-data" class="level3" data-number="6.2.1">
-<h3 data-number="6.2.1" class="anchored" data-anchor-id="example-data"><span class="header-section-number">6.2.1</span> Example Data</h3>
+<section id="example-data" class="level3" data-number="4.2.1">
+<h3 data-number="4.2.1" class="anchored" data-anchor-id="example-data"><span class="header-section-number">4.2.1</span> Example Data</h3>
 <p>I will be using a sample of experiment’s results from Climate and Cooperation Experiment from Mexico. During the experiments, subjects were asked to complete three series of ravens matrices, four dictator games, and a single lottery game. Sessions below 30 Celsius are labeled as control, and sessions above 30 Celsius as treatment. We will be primarily using results from Raven’s matrices games: 3 sets of 12 matrices. First set, <code>pr_</code>, is piece-rate round where participants received points for each correctly solved matrix. Second set, <code>tr_</code>, is tournament round where participants competed againts a random opponent and the winner received double point and the loser received nothing. Third set, <code>ch_</code>, is choice round. Participants were asked to decide whether they want to play piece-rate or tournament againts a different opponent’s score from tournament round.</p>
 <p>You can find data in the <code>data</code> in GitHub repository. We will need <code>tidyverse</code>.</p>
 <div class="cell">
@@ -532,11 +532,11 @@ $ end_time_h         &lt;dbl&gt; 13, 13, 13, 13, 13, 13, 13, 13, 15, 15, 15, 15,
 </div>
 </section>
 </section>
-<section id="basic-data-management" class="level2" data-number="6.3">
-<h2 data-number="6.3" class="anchored" data-anchor-id="basic-data-management"><span class="header-section-number">6.3</span> Basic Data Management</h2>
+<section id="basic-data-management" class="level2" data-number="4.3">
+<h2 data-number="4.3" class="anchored" data-anchor-id="basic-data-management"><span class="header-section-number">4.3</span> Basic Data Management</h2>
 <p>dplyr uses a collection of verbs to manipulate data that are piped (chained) into each other with a piping operator <code>%&gt;%</code> from <code>magrittr</code> package. The way you use functions in base R is you wrap new function over the previous one, such as <code>k(g(f(x)))</code> this will become impossible to read very quickly as you stack up functions and their arguments. To solve this we will use pipes <code>x %&gt;% f() %&gt;% g() %&gt;% k()</code>! Now you can clearly see that we take x and apply f(), then g(), then k(). Note: base R now also has its own pipe <code>|&gt;</code>, but we will stick to <code>%&gt;%</code> for compatibility across packages.</p>
-<section id="select" class="level3" data-number="6.3.1">
-<h3 data-number="6.3.1" class="anchored" data-anchor-id="select"><span class="header-section-number">6.3.1</span> <code>select()</code></h3>
+<section id="select" class="level3" data-number="4.3.1">
+<h3 data-number="4.3.1" class="anchored" data-anchor-id="select"><span class="header-section-number">4.3.1</span> <code>select()</code></h3>
 <p><code>select()</code> selects only the columns that you want, removing all other columns. You can use column position (with numbers) or name. The columns will be displayed in the order you list them. We will select subject_id, temperature, gender and results of raven’s matrices games.</p>
 <ul>
 <li><code>id</code> is a unique subject identification number, where site_id.session_n.subject_n (001.001.001).</li>
@@ -579,8 +579,8 @@ $ end_time_h         &lt;dbl&gt; 13, 13, 13, 13, 13, 13, 13, 13, 15, 15, 15, 15,
 </div>
 </div>
 </section>
-<section id="filter" class="level3" data-number="6.3.2">
-<h3 data-number="6.3.2" class="anchored" data-anchor-id="filter"><span class="header-section-number">6.3.2</span> <code>filter()</code></h3>
+<section id="filter" class="level3" data-number="4.3.2">
+<h3 data-number="4.3.2" class="anchored" data-anchor-id="filter"><span class="header-section-number">4.3.2</span> <code>filter()</code></h3>
 <p><code>filter()</code> keeps only rows that meet the specified criteria. Let’s filter and make 2 data sets one for Males and, one for Females.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb58"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb58-1"><a href="#cb58-1" aria-hidden="true" tabindex="-1"></a>data_male <span class="ot">&lt;-</span> data_raven <span class="sc">%&gt;%</span> <span class="fu">filter</span>(gender <span class="sc">==</span> <span class="st">"Male"</span>) <span class="co"># we use == for comparison</span></span>
@@ -637,8 +637,8 @@ $ end_time_h         &lt;dbl&gt; 13, 13, 13, 13, 13, 13, 13, 13, 15, 15, 15, 15,
 </div>
 </div>
 </section>
-<section id="arrange" class="level3" data-number="6.3.3">
-<h3 data-number="6.3.3" class="anchored" data-anchor-id="arrange"><span class="header-section-number">6.3.3</span> <code>arrange()</code></h3>
+<section id="arrange" class="level3" data-number="4.3.3">
+<h3 data-number="4.3.3" class="anchored" data-anchor-id="arrange"><span class="header-section-number">4.3.3</span> <code>arrange()</code></h3>
 <p><code>arrange()</code> allows you to order the table using a variable. Let’s see which subject scored the worst in <code>pr_correct</code>.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb64"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb64-1"><a href="#cb64-1" aria-hidden="true" tabindex="-1"></a>data_raven <span class="sc">%&gt;%</span> <span class="fu">arrange</span>(pr_correct) <span class="sc">%&gt;%</span> <span class="fu">head</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -672,8 +672,8 @@ $ end_time_h         &lt;dbl&gt; 13, 13, 13, 13, 13, 13, 13, 13, 15, 15, 15, 15,
 </div>
 </div>
 </section>
-<section id="mutate" class="level3" data-number="6.3.4">
-<h3 data-number="6.3.4" class="anchored" data-anchor-id="mutate"><span class="header-section-number">6.3.4</span> <code>mutate()</code></h3>
+<section id="mutate" class="level3" data-number="4.3.4">
+<h3 data-number="4.3.4" class="anchored" data-anchor-id="mutate"><span class="header-section-number">4.3.4</span> <code>mutate()</code></h3>
 <p><code>mutate()</code> adds new columns and modifies current variables in the data set. Let’s create a dataset with 10 rows and make three new variable columns as an example</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb68"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb68-1"><a href="#cb68-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tibble</span>(<span class="at">rows =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>) <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(</span>
@@ -723,8 +723,8 @@ $ end_time_h         &lt;dbl&gt; 13, 13, 13, 13, 13, 13, 13, 13, 15, 15, 15, 15,
 </div>
 <p>Notice that we can nest functions within <code>mutate()</code>: first we took <code>mean()</code> of the entire column and then subtracted it from <code>pr_correct</code>.</p>
 </section>
-<section id="recode" class="level3" data-number="6.3.5">
-<h3 data-number="6.3.5" class="anchored" data-anchor-id="recode"><span class="header-section-number">6.3.5</span> <code>recode()</code></h3>
+<section id="recode" class="level3" data-number="4.3.5">
+<h3 data-number="4.3.5" class="anchored" data-anchor-id="recode"><span class="header-section-number">4.3.5</span> <code>recode()</code></h3>
 <p><code>recode()</code> modifies the values within a variable. Here is a template:</p>
 <blockquote class="blockquote">
 <p>data %&gt;% mutate(Variable = recode(Variable, “old value” = “new value”))</p>
@@ -735,8 +735,8 @@ $ end_time_h         &lt;dbl&gt; 13, 13, 13, 13, 13, 13, 13, 13, 15, 15, 15, 15,
 </div>
 </section>
 </section>
-<section id="summarize" class="level2" data-number="6.4">
-<h2 data-number="6.4" class="anchored" data-anchor-id="summarize"><span class="header-section-number">6.4</span> <code>summarize()</code></h2>
+<section id="summarize" class="level2" data-number="4.4">
+<h2 data-number="4.4" class="anchored" data-anchor-id="summarize"><span class="header-section-number">4.4</span> <code>summarize()</code></h2>
 <p><code>summarize()</code> collapses all rows and returns a one-row summary. We will use summary to calculation what percentage of participant were male, median score in piece-rate round, max score in tournament, percentage of people choosing tournament in choice and mean score in choice round.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb73"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb73-1"><a href="#cb73-1" aria-hidden="true" tabindex="-1"></a>data_raven <span class="sc">%&gt;%</span> </span>
@@ -753,10 +753,10 @@ $ end_time_h         &lt;dbl&gt; 13, 13, 13, 13, 13, 13, 13, 13, 15, 15, 15, 15,
 </div>
 </div>
 </section>
-<section id="group_by-and-ungroup" class="level2" data-number="6.5">
-<h2 data-number="6.5" class="anchored" data-anchor-id="group_by-and-ungroup"><span class="header-section-number">6.5</span> <code>group_by()</code> and <code>ungroup()</code></h2>
-<section id="group_by" class="level3" data-number="6.5.1">
-<h3 data-number="6.5.1" class="anchored" data-anchor-id="group_by"><span class="header-section-number">6.5.1</span> <code>group_by()</code></h3>
+<section id="group_by-and-ungroup" class="level2" data-number="4.5">
+<h2 data-number="4.5" class="anchored" data-anchor-id="group_by-and-ungroup"><span class="header-section-number">4.5</span> <code>group_by()</code> and <code>ungroup()</code></h2>
+<section id="group_by" class="level3" data-number="4.5.1">
+<h3 data-number="4.5.1" class="anchored" data-anchor-id="group_by"><span class="header-section-number">4.5.1</span> <code>group_by()</code></h3>
 <p><code>group_by()</code> groups data by specific variables for future operations. We can use <code>group_by()</code> and <code>summarize()</code> to calculate different summary statistics for genders!</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb75"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb75-1"><a href="#cb75-1" aria-hidden="true" tabindex="-1"></a>data_raven <span class="sc">%&gt;%</span> </span>
@@ -796,8 +796,8 @@ $ end_time_h         &lt;dbl&gt; 13, 13, 13, 13, 13, 13, 13, 13, 15, 15, 15, 15,
 </div>
 </div>
 </section>
-<section id="ungroup" class="level3" data-number="6.5.2">
-<h3 data-number="6.5.2" class="anchored" data-anchor-id="ungroup"><span class="header-section-number">6.5.2</span> <code>ungroup()</code></h3>
+<section id="ungroup" class="level3" data-number="4.5.2">
+<h3 data-number="4.5.2" class="anchored" data-anchor-id="ungroup"><span class="header-section-number">4.5.2</span> <code>ungroup()</code></h3>
 <p><code>ungroup()</code> does exactly what you think – removes the grouping! Always ungroup your data after you are done with operation that required grouping, else it will get messy. Look at this example</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb79"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb79-1"><a href="#cb79-1" aria-hidden="true" tabindex="-1"></a>data_raven <span class="sc">%&gt;%</span></span>
@@ -840,8 +840,8 @@ $ end_time_h         &lt;dbl&gt; 13, 13, 13, 13, 13, 13, 13, 13, 15, 15, 15, 15,
 </div>
 <p>This time on the other hand we ungrouped the data, correctly calculating the ratio!</p>
 </section>
-<section id="rowwise" class="level3" data-number="6.5.3">
-<h3 data-number="6.5.3" class="anchored" data-anchor-id="rowwise"><span class="header-section-number">6.5.3</span> <code>rowwise()</code></h3>
+<section id="rowwise" class="level3" data-number="4.5.3">
+<h3 data-number="4.5.3" class="anchored" data-anchor-id="rowwise"><span class="header-section-number">4.5.3</span> <code>rowwise()</code></h3>
 <p><code>rowwise()</code> produces a row-wise grouping. Later you might want to run a calculation row-wise instead of column-wise, but your column will be filled with an aggregate result. This is where <code>rowwise()</code> comes in to save the day! To demonstrate, we will make a dataframe with a column of lists and try to find the length of each list.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb83"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb83-1"><a href="#cb83-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
@@ -877,8 +877,8 @@ $ end_time_h         &lt;dbl&gt; 13, 13, 13, 13, 13, 13, 13, 13, 15, 15, 15, 15,
 <p>Yey! Here R runs <code>length()</code> on each list separately, giving us correct lengths! Alternatively you can use <code>lengths()</code>, which loops <code>length()</code> over each list.</p>
 </section>
 </section>
-<section id="count" class="level2" data-number="6.6">
-<h2 data-number="6.6" class="anchored" data-anchor-id="count"><span class="header-section-number">6.6</span> <code>count()</code></h2>
+<section id="count" class="level2" data-number="4.6">
+<h2 data-number="4.6" class="anchored" data-anchor-id="count"><span class="header-section-number">4.6</span> <code>count()</code></h2>
 <p><code>count()</code> is similar to <code>group_by()</code> and <code>summarize()</code> combo – it collapses the rows and counts the number of observations per group of values.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb87"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb87-1"><a href="#cb87-1" aria-hidden="true" tabindex="-1"></a>data_raven <span class="sc">%&gt;%</span> <span class="fu">count</span>(gender)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -906,8 +906,8 @@ $ end_time_h         &lt;dbl&gt; 13, 13, 13, 13, 13, 13, 13, 13, 15, 15, 15, 15,
 </div>
 </div>
 </section>
-<section id="rename" class="level2" data-number="6.7">
-<h2 data-number="6.7" class="anchored" data-anchor-id="rename"><span class="header-section-number">6.7</span> <code>rename()</code></h2>
+<section id="rename" class="level2" data-number="4.7">
+<h2 data-number="4.7" class="anchored" data-anchor-id="rename"><span class="header-section-number">4.7</span> <code>rename()</code></h2>
 <p><code>rename()</code> renames a column. Notice that the “New Name” is on the left and “Old Name” is on the right. Let’s rename <code>id</code> to <code>subject_id</code> and <code>gender</code> to <code>sex</code>.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb91"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb91-1"><a href="#cb91-1" aria-hidden="true" tabindex="-1"></a>data_raven <span class="sc">%&gt;%</span> <span class="fu">rename</span>(<span class="st">"subject_id"</span> <span class="ot">=</span> <span class="st">"id"</span>, <span class="st">"sex"</span> <span class="ot">=</span> <span class="st">"gender"</span>) <span class="sc">%&gt;%</span> <span class="fu">head</span>(<span class="at">n =</span> <span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -924,8 +924,8 @@ $ end_time_h         &lt;dbl&gt; 13, 13, 13, 13, 13, 13, 13, 13, 15, 15, 15, 15,
 </div>
 </div>
 </section>
-<section id="row_number" class="level2" data-number="6.8">
-<h2 data-number="6.8" class="anchored" data-anchor-id="row_number"><span class="header-section-number">6.8</span> <code>row_number()</code></h2>
+<section id="row_number" class="level2" data-number="4.8">
+<h2 data-number="4.8" class="anchored" data-anchor-id="row_number"><span class="header-section-number">4.8</span> <code>row_number()</code></h2>
 <p><code>row_number()</code> fills a column with consecutive numbers. It is especially useful if you need to create an id column. Let’s remove <code>id</code> column and make a new one with <code>row_number()</code>.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb93"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb93-1"><a href="#cb93-1" aria-hidden="true" tabindex="-1"></a>data_raven <span class="sc">%&gt;%</span> </span>
@@ -1049,13 +1049,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./tidy_data.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Tidy Data</span></span>
+      <a href="./qualtrics_api.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Qualtrics API</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./data_viz.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Data Visualization</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./tidy_data.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Tidy Data</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
